@@ -52,6 +52,15 @@ public class WebExceptionAdvice {
     }
     
     /**
+     * AI 服务异常
+     */
+    @ExceptionHandler(value = {org.springframework.ai.retry.NonTransientAiException.class})
+    public Result<String> aiExceptionHandler(HttpServletRequest request, Exception ex) {
+        log.error("AI服务异常 错误信息 : {} method : {} url : {} query : {} ", ex.getMessage(), request.getMethod(), getRequestUrl(request), getRequestQuery(request), ex);
+        return Result.fail("AI服务暂时不可用，请稍后重试");
+    }
+
+    /**
      * 拦截未捕获异常
      */
     @ExceptionHandler(value = Throwable.class)

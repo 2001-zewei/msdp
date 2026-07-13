@@ -130,6 +130,15 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     listener:
       ack-mode: manual_immediate
+  ai:
+    openai:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode
+      api-key: ${AI_API_KEY:your-api-key}
+      chat:
+        enabled: true
+        options:
+          model: ${AI_MODEL:qwen-plus}
+          temperature: 0.7
 mybatis-plus:
   type-aliases-package: org.javaup.entity # 别名扫描包
   configuration:
@@ -160,4 +169,31 @@ management:
     metrics:
       export:
         enabled: true
-      
+
+# ── DP-Plus AI 智能客服配置 ──────────────────────────────────────
+dp-plus:
+  ai:
+    llm:
+      fallback-enabled: true
+    memory:
+      ttl-seconds: 86400
+      working-max: 20
+      compress-at: 15
+    rag:
+      top-k: 4
+      bm25-weight: 0.45
+      vector-weight: 0.55
+    storage:
+      data-dir: data
+      knowledge-path: knowledge-store.json
+      memory-path: memory-store.json
+    monitor:
+      success-rate-threshold: 0.90
+      latency-ms-threshold: 3000
+      webhook-url: ""
+    eval:
+      baseline-path: eval/baseline.json
+    skill:
+      dir: dp-core-service/src/main/resources/skills
+      max-prompt-chars: 5000
+

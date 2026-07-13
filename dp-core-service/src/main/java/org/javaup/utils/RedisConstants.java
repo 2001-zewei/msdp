@@ -28,4 +28,11 @@ public class RedisConstants {
     public static final String FEED_KEY = "feed:";
     public static final String SHOP_GEO_KEY = "shop:geo:";
     public static final String USER_SIGN_KEY = "sign:";
+
+    /** AI 聊天历史 Redis Key 前缀 */
+    public static final String AI_CHAT_HISTORY_KEY = "ai:chat:history:";
+    /** AI 聊天历史过期时间（分钟） */
+    public static final Long AI_CHAT_HISTORY_TTL = 1440L;
+    /** AI 聊天历史最大保留条数（20轮对话 = 40条消息） */
+    public static final int AI_CHAT_MAX_HISTORY = 40;
 }
