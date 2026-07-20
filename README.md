@@ -1,6 +1,6 @@
 # 智能电商平台
 
-> DP-Plus — 高并发秒杀电商平台 + 多 Agent AI 智能客服
+>校园生活平台 + 多 Agent AI 智能客服
 
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://openjdk.org/projects/jdk/21/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-brightgreen.svg)](https://spring.io/projects/spring-boot)
